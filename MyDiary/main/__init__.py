@@ -22,7 +22,7 @@ app.config["ALLOWED_EXTENSIONS"] = 15 * 1024 * 1024
 
 
 from .common import login_required
-from .common import file_ch, generator  # => summernote사용하려고 했으나 jquery관련 문제로 보류
+from .common import file_ch, generator
 from .filter import format_datetime
 from . import board
 from . import member

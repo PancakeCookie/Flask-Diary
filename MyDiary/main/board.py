@@ -15,7 +15,7 @@ def up_image():
             filename = "{}.jpg".format(generator())
             savefilepath = os.path.join(app.config["BOARD_IMAGE_PATH"], filename)
             file.save(savefilepath)
-            return url_for("board.images", filename=filename)
+    return url_for("board.images", filename=filename)
 
 
 @blueprint.route("/images/<filename>")
@@ -23,13 +23,9 @@ def images(filename):
     return send_from_directory(app.config["BOARD_IMAGE_PATH"], filename)
 
 
-# 독립적인 폴더에 저장해서 접근
-
-
 @blueprint.route("/list")
 @login_required
 def lists():
-    # 페이지넘버값
     page = request.args.get("page", default=1, type=int)
     # 한 페이지당 게시물을 몇개출력할지 -> 10개출력
     limit = request.args.get("list", 10, type=int)
@@ -37,13 +33,11 @@ def lists():
     board = mongo.db.board
     datas = board.find({}).skip((page - 1) * limit).limit(limit).sort("time", -1)
 
-    # 페이지 블록처리코드 구현
-    # 페이지 번호 넣기
+    # 페이지 번호
     tot_count = board.find({}).count()
-    # 마지막 페이지 넘버
     last_page_num = math.ceil(tot_count / limit)
     block_size = 1
-    block_num = int((page - 1) / block_size)  # 현재 블록 위치
+    block_num = int((page - 1) / block_size)
     block_start = int((block_size * block_num) + 1)
     block_last = math.ceil(block_start + (block_size - 1))
 
@@ -79,7 +73,9 @@ def board_view(idx):
                 "writer_id": data.get("writer_id", ""),
             }
 
-            return render_template("view.html", result=result, page=page, title="게시글보기")
+            return render_template(
+                "view.html", result=result, page=page, title="게시글 보기"
+            )
 
     return abort(404)
 

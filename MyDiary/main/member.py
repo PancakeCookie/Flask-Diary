@@ -65,7 +65,7 @@ def login():
                 session["email"] = email
                 session["name"] = data.get("name")
                 session["id"] = str(data.get("_id"))
-                session.permanent = True  # 자원의 효율적 운영을 위해 true로 놓음
+                session.permanent = True
                 if next_url is not None:
                     return redirect(next_url)
                 else:

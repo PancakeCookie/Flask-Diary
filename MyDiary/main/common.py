@@ -18,9 +18,6 @@ def file_ch(filename):
     return "." in filename and filename.rsplit(".", 1)[1] in ALLOWED_EXTENSIONS
 
 
-# 가장 마지막 .1개만을 가지고 그 기준으로 파일명의 확장자 체크하기 위해 생성
-
-
 def generator(length=8):
     char = ascii_lowercase + ascii_uppercase + digits
     return "".join(random.sample(char, length))
