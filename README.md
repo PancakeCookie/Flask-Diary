@@ -9,6 +9,7 @@
 
 
 로그인 한 이후 /board/write에서 글 작성, 삭제, 수정 가능
+
 summernote를 이용하여 글 내용 작성 시 이미지 첨부 및 글꼴변경 등 부가기능 구현
 
 ![슬라이드2](https://user-images.githubusercontent.com/81530929/124283263-abd69700-db86-11eb-910d-7ac36012b864.PNG)
