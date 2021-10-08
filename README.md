@@ -1,6 +1,6 @@
 # MyDiary
 
-데이터들은 flask pymongo DB에 저장됩니다
+서버: flask 데이터베이스: pymongoDB
 
 /member/login 로 접속
 이 창에서 회원가입 혹은 로그인, 로그아웃 가능
